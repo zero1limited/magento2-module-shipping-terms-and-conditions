@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="shipping">
+            <group id="zero1_shipping_terms_and_conditions" translate="label" type="text" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Shipping Terms And Conditions</label>
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" canRestore="1">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="patterns" translate="label" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Messages / Patterns</label>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                    <comment>
+                        - &lt;strong&gt;Pattern:&lt;/strong&gt; a regex expression for what to match e.g ".*" for everything&lt;br&gt;
+                        - &lt;strong&gt;Modifiers:&lt;/strong&gt; regex modified e.g "pattern": standard modifier "i" would match any shipping method containing "standard" regardless of case&lt;br&gt;
+                        - &lt;strong&gt;Message:&lt;/strong&gt; The html message to be displayed&lt;br&gt;
+                        - &lt;strong&gt;Has Checkbox:&lt;/strong&gt; If the message should have a checkbox that is required before the user can proceed&lt;br&gt;
+                        - &lt;strong&gt;Label:&lt;/strong&gt; The message for the checkbox&lt;br&gt;
+                     </comment>
+                    <frontend_model>Zero1\ShippingTermsAndConditions\Block\Adminhtml\Form\Field\Patterns</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
